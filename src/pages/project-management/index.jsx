@@ -327,8 +327,22 @@ const ProjectManagement = () => {
                   variant="outline"
                   iconName="Download"
                   iconPosition="left"
+                  onClick={() => {
+                    const rows = [
+                      ['Project Name','Client','Start Date','Deadline','Assigned To','Status','Type'],
+                      ...filteredAndSortedProjects.map(p => [p.name, p.client, p.startDate, p.deadline, p.assignedTo, p.status, p.projectType])
+                    ];
+                    const csv = rows.map(r => r.join(',')).join('\n');
+                    const blob = new Blob([csv], { type: 'text/csv' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `projects-${new Date().toISOString().slice(0,10)}.csv`;
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                  }}
                 >
-                  Export
+                  Export CSV
                 </Button>
                 <Button
                   onClick={handleNewProject}

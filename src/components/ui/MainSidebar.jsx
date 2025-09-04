@@ -27,16 +27,34 @@ const MainSidebar = ({ isCollapsed = false, onToggleCollapse }) => {
       tooltip: 'Project coordination and tracking'
     },
     {
+      label: 'Finance',
+      path: '/finance',
+      icon: 'Receipt',
+      tooltip: 'Invoices and receipts'
+    },
+    {
       label: 'Testimonials',
       path: '/testimonials-section',
       icon: 'MessageSquare',
       tooltip: 'Client feedback management'
     },
     {
+      label: 'Templates',
+      path: '/templates-library',
+      icon: 'Layout',
+      tooltip: 'Templates and SOPs'
+    },
+    {
       label: 'Legal & Docs',
       path: '/legal-quebec-docs',
       icon: 'FileText',
       tooltip: 'Quebec compliance documentation'
+    },
+    {
+      label: 'Search',
+      path: '/search',
+      icon: 'Search',
+      tooltip: 'Global search'
     }
   ];
 

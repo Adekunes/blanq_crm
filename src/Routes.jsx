@@ -10,6 +10,9 @@ import Dashboard from './pages/dashboard';
 import ClientManagement from './pages/client-management';
 import TestimonialsSection from './pages/testimonials-section';
 import CollaborativeToDoManagement from './pages/collaborative-to-do-management';
+import Finance from './pages/finance';
+import TemplatesLibrary from './pages/templates-library';
+import GlobalSearch from './pages/search';
 
 const Routes = () => {
   return (
@@ -26,6 +29,9 @@ const Routes = () => {
         <Route path="/client-management" element={<ClientManagement />} />
         <Route path="/testimonials-section" element={<TestimonialsSection />} />
         <Route path="/collaborative-to-do-management" element={<CollaborativeToDoManagement />} />
+        <Route path="/finance" element={<Finance />} />
+        <Route path="/templates-library" element={<TemplatesLibrary />} />
+        <Route path="/search" element={<GlobalSearch />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       </ErrorBoundary>
