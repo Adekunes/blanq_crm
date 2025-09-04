@@ -17,26 +17,33 @@ const LoginPage = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-card rounded-2xl shadow-elevated border border-border p-8">
-          {/* Header Section */}
-          <LoginHeader />
+        {/* Floating card with glass effect */}
+        <div className="relative">
+          {/* Background blur effect */}
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-3xl shadow-2xl"></div>
+          
+          {/* Main content */}
+          <div className="relative bg-white/80 backdrop-blur-md rounded-3xl border border-white/50 shadow-xl p-10">
+            {/* Header Section */}
+            <LoginHeader />
 
-          {/* Login Form */}
-          <LoginForm />
+            {/* Login Form */}
+            <LoginForm />
 
-          {/* Demo Credentials */}
-          <DemoCredentials />
+            {/* Demo Credentials */}
+            <DemoCredentials />
 
-          {/* Quebec Compliance Footer */}
-          <QuebecCompliance />
+            {/* Quebec Compliance Footer */}
+            <QuebecCompliance />
+          </div>
         </div>
 
         {/* Additional Info */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-muted-foreground">
-            Secure access to your digital agency management system
+        <div className="mt-8 text-center">
+          <p className="text-sm text-slate-600/80 font-medium">
+            Secure access to your workspace
           </p>
         </div>
       </div>

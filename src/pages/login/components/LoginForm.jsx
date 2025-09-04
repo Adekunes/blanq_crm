@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
-import Input from '../../../components/ui/Input';
+
 import Icon from '../../../components/AppIcon';
 
 const LoginForm = () => {
@@ -102,59 +102,93 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* General Error Message */}
         {errors?.general && (
-          <div className="p-4 bg-error/10 border border-error/20 rounded-lg">
-            <div className="flex items-center space-x-2">
-              <Icon name="AlertCircle" size={16} className="text-error flex-shrink-0" />
-              <p className="text-sm text-error">{errors?.general}</p>
+          <div className="p-4 bg-red-50/80 backdrop-blur-sm border border-red-200/50 rounded-2xl">
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0">
+                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                  <Icon name="AlertCircle" size={16} className="text-red-500" />
+                </div>
+              </div>
+              <p className="text-sm text-red-700 font-medium">{errors?.general}</p>
             </div>
           </div>
         )}
 
         {/* Email Field */}
-        <Input
-          label="Email Address"
-          type="email"
-          name="email"
-          placeholder="Enter your email address"
-          value={formData?.email}
-          onChange={handleInputChange}
-          error={errors?.email}
-          required
-          disabled={isLoading}
-        />
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">
+            Email Address
+          </label>
+          <div className="relative">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData?.email}
+              onChange={handleInputChange}
+              disabled={isLoading}
+              className="w-full px-4 py-4 bg-white/50 backdrop-blur-sm border border-slate-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 transition-all duration-300 text-slate-800 placeholder-slate-400"
+              required
+            />
+            {errors?.email && (
+              <p className="mt-2 text-sm text-red-600 font-medium">{errors?.email}</p>
+            )}
+          </div>
+        </div>
 
         {/* Password Field */}
-        <Input
-          label="Password"
-          type="password"
-          name="password"
-          placeholder="Enter your password"
-          value={formData?.password}
-          onChange={handleInputChange}
-          error={errors?.password}
-          required
-          disabled={isLoading}
-        />
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">
+            Password
+          </label>
+          <div className="relative">
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData?.password}
+              onChange={handleInputChange}
+              disabled={isLoading}
+              className="w-full px-4 py-4 bg-white/50 backdrop-blur-sm border border-slate-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 transition-all duration-300 text-slate-800 placeholder-slate-400"
+              required
+            />
+            {errors?.password && (
+              <p className="mt-2 text-sm text-red-600 font-medium">{errors?.password}</p>
+            )}
+          </div>
+        </div>
 
         {/* Sign In Button */}
-        <Button
+        <button
           type="submit"
-          variant="default"
-          fullWidth
-          loading={isLoading}
           disabled={isLoading}
-          iconName="LogIn"
-          iconPosition="left"
+          className="w-full relative group overflow-hidden"
         >
-          {isLoading ? 'Signing In...' : 'Sign In'}
-        </Button>
+          {/* Button background with gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl transition-all duration-300 group-hover:from-blue-600 group-hover:to-indigo-700"></div>
+          
+          {/* Button content */}
+          <div className="relative flex items-center justify-center px-6 py-4 text-white font-semibold">
+            {isLoading ? (
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <span>Signing in...</span>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-2">
+                <Icon name="LogIn" size={18} />
+                <span>Sign In</span>
+              </div>
+            )}
+          </div>
+        </button>
 
         {/* Forgot Password Link */}
-        <div className="text-center">
+        <div className="text-center pt-2">
           <button
             type="button"
             onClick={handleForgotPassword}
-            className="text-sm text-primary hover:text-primary/80 transition-smooth"
+            className="text-sm text-slate-600 hover:text-blue-600 transition-colors duration-200 font-medium"
             disabled={isLoading}
           >
             Forgot your password?

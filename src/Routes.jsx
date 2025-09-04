@@ -9,6 +9,7 @@ import LoginPage from './pages/login';
 import Dashboard from './pages/dashboard';
 import ClientManagement from './pages/client-management';
 import TestimonialsSection from './pages/testimonials-section';
+import CollaborativeToDoManagement from './pages/collaborative-to-do-management';
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/client-management" element={<ClientManagement />} />
         <Route path="/testimonials-section" element={<TestimonialsSection />} />
+        <Route path="/collaborative-to-do-management" element={<CollaborativeToDoManagement />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       </ErrorBoundary>

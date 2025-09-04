@@ -2,7 +2,7 @@ import React from 'react';
 import Select from '../../../components/ui/Select';
 import Input from '../../../components/ui/Input';
 import Button from '../../../components/ui/Button';
-import Icon from '../../../components/AppIcon';
+
 
 const ProjectFilters = ({
   filters,
